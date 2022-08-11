@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <b-modal
+      data-cy="modal-information"
       v-model="openToast"
       :title="``"
       title-class=""
@@ -15,8 +16,8 @@
     >
       <div class="row">
         <div class="col-12 text-left">
-          <img src="@/assets/icon-alert-info.svg" alt="" class="mx-2">
-          <span class="align-middle">Activity berhasil dihapus</span>
+          <img src="@/assets/icon-alert-info.svg" alt="" class="mx-2" data-cy="modal-information-icon">
+          <span class="align-middle" data-cy="modal-information-title">Activity berhasil dihapus</span>
         </div>
       </div>
     </b-modal>
@@ -29,11 +30,12 @@
       centered
       hide-header-close
       size="md"
+      data-cy="modal-delete"
       content-class="rounded-12 px-4 pt-4"
     >
-      <div class="row">
+      <div class="row" data-cy="todo-modal-delete">
         <div class="col-12 text-center">
-          <img src="@/assets/icon-alert.svg" alt="">
+          <img src="@/assets/icon-alert.svg" alt="" data-cy="modal-delete-icon">
         <p class="fs-18">Apakah anda yakin menghapus activity <b>"New activity"</b> ?</p>
         </div>
       </div>
@@ -51,7 +53,7 @@
     <div class="container drawing">
       <div class="row py-5">
         <div class="col-6">
-          <p class="mb-0 fs-36 fw-700">Activity</p>
+          <p class="mb-0 fs-36 fw-700" data-cy="activity-title">Activity</p>
         </div>
         <div class="col-6 text-center">
           <button @click="addActivity" class="btn bg-primer btn-primer fs-18 fw-600" data-cy="activity-add-button"><img src="@/assets/icon-plus.svg" alt=""> Tambah</button>

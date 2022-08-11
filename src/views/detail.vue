@@ -9,9 +9,10 @@
       centered
       hide-header-close
       size="md"
+      data-cy="modal-delete"
       content-class="rounded-12 px-4 pt-4"
     >
-      <div class="row">
+      <div class="row" data-cy="todo-modal-delete">
         <div class="col-12 text-center">
           <img src="@/assets/icon-alert.svg" alt="">
         <p class="fs-18">Apakah anda yakin menghapus activity <b>"{{selectedItem}}"</b> ?</p>
@@ -30,12 +31,21 @@
     </b-modal>
     <b-modal
       v-model="openModalListItem"
-      :title="`Tambah List Item`"
+      hide-header-close
+      header-border-variant="none"
       title-class="px-0"
       centered
       size="lg"
       content-class="rounded-12 px-4 pt-4"
     >
+      <div class="row">
+        <div class="col-6">
+          <h5 data-cy="modal-add-title">Tambah List Item</h5>
+        </div>
+        <div class="col-6 text-right">
+          <img src="@/assets/icon-close.svg" alt="" class="pointer" @click="openModalListItem = false" data-cy="modal-add-close-button">
+        </div>
+      </div>
       <div class="row">
         <div class="col-12 px-0 my-3">
             <label class="sr-only mb-1 fs-12" for="list_item" data-cy="modal-add-name-title"><b>NAMA LIST ITEM</b></label>
@@ -93,10 +103,14 @@
         <div class="col-6" style="text-align: right">
             <b-dropdown size="lg"  variant="link" toggle-class="btn-sort" no-caret data-cy="todo-sort-button">
                 <template #button-content>
-                   <img src="@/assets/icon-sort.svg" alt="">
+                   <img src="@/assets/icon-sort.svg" alt="" data-cy="sort-selection-icon">
                 </template>
-                <b-dropdown-item v-for="(item,idx) in sortingOptions" :key="idx" class="fs-16 py-2" :class="sortingOptions.length == idx+1 ? '' : 'bb-solid'" @click="filtering(item.value)">
-                  <img :src="item.img" alt="" width="25"> {{item.label}} <img src="@/assets/icon-check.svg" alt="" v-if="tipes == item.value" class="position-check">
+                <b-dropdown-item v-for="(item,idx) in sortingOptions" :key="idx"
+                  class="fs-16 py-2" :class="sortingOptions.length == idx+1 ? '' : 'bb-solid'"
+                  @click="filtering(item.value)"
+                  data-cy="sort-selection-selected"
+                >
+                  <img :src="item.img" alt="" width="25"> {{item.label}} <img src="@/assets/icon-check.svg" alt="" v-if="tipes == item.value" class="position-check" data-cy="sort-selection-title">
                 </b-dropdown-item>
             </b-dropdown>
             <button @click="openModalListItem = true" class="btn bg-primer btn-primer fs-18 fw-600" data-cy="todo-add-button">
@@ -104,7 +118,7 @@
             </button>
         </div>
       </div>
-      <div class="col-12 text-center" v-if="listItems.length == 0">
+      <div class="col-12 text-center" v-if="listItems.length == 0" data-cy="todo-empty-state">
         <img src="@/assets/empty-item.png" alt="" class="pointer">
       </div>
       <div class="row" v-else>
