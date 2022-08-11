@@ -1,0 +1,109 @@
+#app{
+    font-family: 'Poppins', sans-serif;
+}
+
+.drawing {
+    max-width: 1000px;
+}
+.fw-700 {
+    font-weight: 700;
+}
+/* Font Size */
+.fs-9 {
+    font-size: 9px !important;
+}
+  
+.fs-10 {
+font-size: 10px !important;
+}
+
+.fs-11 {
+font-size: 11px !important;
+}
+
+.fs-12 {
+font-size: 12px !important;
+}
+
+.fs-13 {
+font-size: 13px !important;
+}
+
+.fs-14 {
+font-size: 14px !important;
+}
+
+.fs-16 {
+font-size: 16px !important;
+}
+
+.fs-17 {
+font-size: 17px !important;
+}
+
+.fs-18 {
+font-size: 18px !important;
+}
+
+.fs-20 {
+font-size: 20px !important;
+}
+
+.fs-22 {
+font-size: 22px !important;
+}
+
+.fs-24 {
+font-size: 24px !important;
+}
+
+.fs-26 {
+font-size: 26px !important;
+}
+
+.fs-28 {
+font-size: 28px !important;
+}
+
+.fs-30 {
+font-size: 30px !important;
+}
+
+.fs-32 {
+font-size: 32px !important;
+}
+
+.fs-34 {
+font-size: 34px !important;
+}
+
+.fs-36 {
+font-size: 36px !important;
+}
+
+.fs-38 {
+font-size: 38px !important;
+}
+
+.bg-primer {
+    background: #16abf8;
+}
+.bg-second {
+    background: #f4f4f4;
+    color: #4a4a4a !important;
+}
+.bg-danger {
+    background: #ed4c5c;
+}
+.btn-primer {
+    color: white;
+    border-radius: 45px;
+    width: 170px;
+    height: 54px;
+}
+.pointer {
+    cursor: pointer;
+}
+.border-none {
+    border:none
+}
