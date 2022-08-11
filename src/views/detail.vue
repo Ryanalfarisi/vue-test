@@ -36,6 +36,7 @@
       title-class="px-0"
       centered
       size="lg"
+      data-cy="modal-add"
       content-class="rounded-12 px-4 pt-4"
     >
       <div class="row">
@@ -60,6 +61,7 @@
         <div class="col-12 px-0 my-3">
             <label class="sr-only mb-1 fs-12" for="list_priority" data-cy="modal-add-priority-title"><b>PRIORITY</b></label>
             <v-select
+              data-cy="modal-add-priority-dropdown"
               v-model="priority"
               label="label"
               :clearable="false"
@@ -86,7 +88,8 @@
       <template #modal-footer="{}">
         <div class="row">
           <div class="col-12 text-right">
-            <button @click="addTodoItem" class="btn bg-primer btn-primer fs-18 fw-600" :disabled="!activityName" data-cy="modal-add-save-button">Simpan</button>
+            <button v-if="!activityName" class="btn bg-primer btn-primer fs-18 fw-600" disabled data-cy="modal-add-save-button">Simpan</button>
+            <button v-else @click="addTodoItem" class="btn bg-primer btn-primer fs-18 fw-600" data-cy="modal-add-save-button">Simpan</button>
           </div>
         </div>
       </template>
@@ -108,7 +111,7 @@
                 <b-dropdown-item v-for="(item,idx) in sortingOptions" :key="idx"
                   class="fs-16 py-2" :class="sortingOptions.length == idx+1 ? '' : 'bb-solid'"
                   @click="filtering(item.value)"
-                  data-cy="sort-selection-selected"
+                  data-cy="sort-selection"
                 >
                   <img :src="item.img" alt="" width="25"> {{item.label}} <img src="@/assets/icon-check.svg" alt="" v-if="tipes == item.value" class="position-check" data-cy="sort-selection-title">
                 </b-dropdown-item>

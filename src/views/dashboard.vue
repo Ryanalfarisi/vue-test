@@ -14,7 +14,7 @@
       size="md"
       content-class=""
     >
-      <div class="row">
+      <div class="row" data-cy="modal-information">
         <div class="col-12 text-left">
           <img src="@/assets/icon-alert-info.svg" alt="" class="mx-2" data-cy="modal-information-icon">
           <span class="align-middle" data-cy="modal-information-title">Activity berhasil dihapus</span>
@@ -53,7 +53,7 @@
     <div class="container drawing">
       <div class="row py-5">
         <div class="col-6">
-          <p class="mb-0 fs-36 fw-700" data-cy="activity-title">Activity</p>
+          <h1 data-cy="activity-title">Activity</h1>
         </div>
         <div class="col-6 text-center">
           <button @click="addActivity" class="btn bg-primer btn-primer fs-18 fw-600" data-cy="activity-add-button"><img src="@/assets/icon-plus.svg" alt=""> Tambah</button>
