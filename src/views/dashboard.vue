@@ -61,17 +61,17 @@
         <img src="@/assets/activity-empty-state.svg" alt="" class="pointer">
       </div>
       <div class="row" v-else>
-        <router-link :to="{name: 'detail', params: { id: item.id }}" class="col-3" v-for="(item, idx) in listActivity" :key="idx">
+        <div class="col-3" v-for="(item, idx) in listActivity" :key="idx">
           <div class="activity-card w-100" data-cy="activity-item" id="itemTodo0">
-            <div class="activity-body">
+            <router-link tag="div" :to="{name: 'detail', params: { id: item.id }}" class="activity-body">
               <p data-cy="activity-item-title" class="fs-18 fw-700">{{item.title}}</p>
-            </div>
+            </router-link>
             <div class="card-footer">
               <span data-cy="activity-item-date" class="fs-14">{{$moment(item.created_at).format("YYYY MMMM DD") }} </span>
               <img src="@/assets/icon-delete.svg" alt="delete" data-cy="activity-item-delete-button" @click="doingDelete(item)">
             </div>
           </div>
-        </router-link>
+        </div>
       </div>
     </div>
   </div>
